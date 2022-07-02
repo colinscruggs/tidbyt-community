@@ -1,0 +1,1 @@
+{"buildTargets":["app","build","clean","format","install-buildifier","lint","test"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
