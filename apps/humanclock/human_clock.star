@@ -90,16 +90,29 @@ def main(config):
 
     # get current time, translate
     now = time.now().in_location(timezone)
-    human = getHumanTime(now.hour, now.minute)
+    # human = getHumanTime(now.hour, now.minute)
+    human = getHumanTime(8, 19)
+
 
     # styling with padding(?)
-    texts = [render.Text(" " * i + s) for i, s in enumerate(human)]
+    text = ['', '', '']
+    text[0] = render.Text(human[0])
+    text[1] = render.Text(human[1])
+    text[2] = render.Animation(
+        children = [
+            render.Text(human[2]),
+            render.Text(human[2] + '.'),
+        ]
+    )
 
     return render.Root(
-        child = render.Padding(
-            pad = 4,
+        delay = 500,
+        child = render.Padding( 
+            pad = (4, 4, -1, 4),
+            color= '#099',
+            # time (left)
             child = render.Column(
-                children = texts,
+                children = text
             ),
         ),
     )
